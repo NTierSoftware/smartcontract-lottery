@@ -31,7 +31,7 @@ def test_cant_enter_unless_started():
         pytest.skip()
     lottery = deploy_lottery()
     # Act / Assert
-    with pytest.raises(exceptions.VirtualMachineError):
+    with pytest.raises((exceptions.VirtualMachineError, ValueError)):
         lottery.enter({"from": get_account(), "value": lottery.getEntranceFee()})
 
 
